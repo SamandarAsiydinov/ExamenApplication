@@ -44,7 +44,9 @@ class CardListActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
+        progressBar = findViewById(R.id.progressBar)
         if (checkInternet()) {
+            progressBar.isVisible = true
             apiRequest()
         } else {
             getDataBase()
@@ -54,7 +56,6 @@ class CardListActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.recyclerView)
         progressBar = findViewById(R.id.progressBar)
         linearLayout = findViewById(R.id.linearlayout)
-        progressBar.isVisible = true
         recyclerView.layoutManager = LinearLayoutManager(this)
         myAdapter = MyAdapter(this, cardList)
         myAdapter2 = MyAdapter2(this, cardList2)
